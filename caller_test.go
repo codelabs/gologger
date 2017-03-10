@@ -26,7 +26,7 @@ func TestGetFile(t *testing.T) {
 
 func TestGetFunction(t *testing.T) {
 	var caller = newCaller(constGoodSkipPostion)
-	assertEquality(t, "github.com/codelabs/logger.TestGetFunction", caller.getFunction())
+	assertEquality(t, "github.com/codelabs/gologger.TestGetFunction", caller.getFunction())
 }
 
 func TestGetLine(t *testing.T) {
