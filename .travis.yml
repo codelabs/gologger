@@ -1,13 +1,17 @@
 language: go
 go:
-    - 1.7.x
-    - master
+- 1.7.x
+- master
 env:
-    global:
-        - GO15VENDOREXPERIMENT=1
+  global:
+  - GO15VENDOREXPERIMENT=1
+  - secure: NC1byvPQsvwXHyrtgxn83MJLBS6HxvPgZIqnXG1PL17C2b+gUq2PC2UTvgB+d/ZbqTIWO313yn6zrW4s0CLvX2CocBkRELxK4dcpf3kLET69TxCWgB9RdKNLv+RV39pAvPp3iGqoqTpF1bwQwNDfRuSUT/6DDPnkk8KRFtGaLVOfgDMj/NFoTMEr/hbFtdmBBF7khq2cAnmE0Tk7eFyMnv4QZ9bfqx2FPyGvkRKHlJCQA2h9jUBrFD42faXYQgYFQl/gbVyy9DzCE9R+QwZh/3nIArYvCORGttQ2Y1sMjcbHoD04hvt+yvWIpkM5WJxpyUYLp0meMS+bHyW/LkzrPnMs0Nw40uhQrXfEeK7lSp3vA2OoY2PBiDS4133jZ60NMXLn9XnV7Jbi9JKsRFILeaWFNFOUU7U2278wJnwmn7SShsty21HUUxMefu3W5int7aoP8YZJk5e5QfBJdg5enSGC2hgQE7igRmfqrhQSeABnqWZHUeMM8TIOQ6IvkUHw02EidDjj97ZVuJkR5nDskVNyhX1SsRIxuaRpNlR5STvPz1GVS7mln/3gBml4u4qcU49w5gBNXeXXbxlNMU7cgiGrxbyXq+URkuj6nIX/rlscvMjI4g2dPhMTWM24e5Sqcj8/I3RtOMw81UYbbY8l2t33RaZqZl8V0HA8upG6xEo=
 before_install:
-    - go get github.com/mattn/goveralls
-    - go get golang.org/x/tools/cmd/cover
+- go get github.com/mattn/goveralls
+- go get golang.org/x/tools/cmd/cover
 script:
-    - go test -v -covermode=count -coverprofile=coverage.out
-    #- "$HOME/gopath/bin/goveralls -coverprofile=coverage.out -service=travis-ci"
+- go test -v -covermode=count -coverprofile=coverage.out
+- "$HOME/gopath/bin/goveralls -coverprofile=coverage.out -service=travis-ci"
+notifications:
+  slack:
+    secure: E+4AzN+UBmk/n23+xaJq//6bBP1YHVqZQg7tn9E3Ke3OM3DZ6Lv03mSqxs27bfzB59dpUq6I4LEez8OL9+Llad5AKWrI2Bc25Iio7Y3xccM71Qo2OjHomZzE3hiM3CmUUBaxN3cB9j1iZAhKxfuhM23swlo9f1JBLXNmKcAWWzChbs5nXFGzGW7Hs0cTm4Jeahy6pf16FSMrX4Mk3M7GJGCJ02CSKPHySRxM5jkhozM/GNkjzv8gtR6p6Q8KE26yKddzvCLoMH57YSto5kGfMx3/hMdwIaV30Mzw9XGQNfIupV3w/BkKIkXbvUB1wrnaUZtzAjlh5Qkhv7cWLTatb38D7LasynYxuuqqS34g3DVXFzJ0zXUn1FhD+0QTUADhnljG5Y9QH5Tgs5tWPJ4r3R/QFNwo3J4WfsR5WhZdGvxuDXqAKgfrhepnr2Lrz8O07OizNIXzZ2XQvwbEEpFBNuleyPk+LwUqSpdKR74CrKZEPbTTwwtXvzCD4Cnz9BHAmFIGkqFMOGR9ShFRlkBYJPUt11Wq4b9tCqbDB+kBRXdxa7IrJy8Lz0Y/fdSvA1GFgwKv6anTv02/Tr2/nj4wrMXZJkCSg/eLtwXTt+ZJQ5G337pFZ2kpkHLNlC63K8GupFUfkSr0/CbOqX7MRJJ8qvG+c5eopB6lW8RjrEckrRg=
