@@ -1,13 +1,14 @@
 language: go
 go:
-    - 1.7.x
-    - master
+- 1.7.x
+- master
 env:
-    global:
-        - GO15VENDOREXPERIMENT=1
+  global:
+  - GO15VENDOREXPERIMENT=1
+  - secure: NC1byvPQsvwXHyrtgxn83MJLBS6HxvPgZIqnXG1PL17C2b+gUq2PC2UTvgB+d/ZbqTIWO313yn6zrW4s0CLvX2CocBkRELxK4dcpf3kLET69TxCWgB9RdKNLv+RV39pAvPp3iGqoqTpF1bwQwNDfRuSUT/6DDPnkk8KRFtGaLVOfgDMj/NFoTMEr/hbFtdmBBF7khq2cAnmE0Tk7eFyMnv4QZ9bfqx2FPyGvkRKHlJCQA2h9jUBrFD42faXYQgYFQl/gbVyy9DzCE9R+QwZh/3nIArYvCORGttQ2Y1sMjcbHoD04hvt+yvWIpkM5WJxpyUYLp0meMS+bHyW/LkzrPnMs0Nw40uhQrXfEeK7lSp3vA2OoY2PBiDS4133jZ60NMXLn9XnV7Jbi9JKsRFILeaWFNFOUU7U2278wJnwmn7SShsty21HUUxMefu3W5int7aoP8YZJk5e5QfBJdg5enSGC2hgQE7igRmfqrhQSeABnqWZHUeMM8TIOQ6IvkUHw02EidDjj97ZVuJkR5nDskVNyhX1SsRIxuaRpNlR5STvPz1GVS7mln/3gBml4u4qcU49w5gBNXeXXbxlNMU7cgiGrxbyXq+URkuj6nIX/rlscvMjI4g2dPhMTWM24e5Sqcj8/I3RtOMw81UYbbY8l2t33RaZqZl8V0HA8upG6xEo=
 before_install:
-    - go get github.com/mattn/goveralls
-    - go get golang.org/x/tools/cmd/cover
+- go get github.com/mattn/goveralls
+- go get golang.org/x/tools/cmd/cover
 script:
-    - go test -v -covermode=count -coverprofile=coverage.out
-    #- "$HOME/gopath/bin/goveralls -coverprofile=coverage.out -service=travis-ci"
+- go test -v -covermode=count -coverprofile=coverage.out
+- "$HOME/gopath/bin/goveralls -coverprofile=coverage.out -service=travis-ci"
