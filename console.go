@@ -16,7 +16,18 @@ type ConsoleLogger struct {
 	callerInfo bool
 	// Flag var to toggle timestamp as epoch or stringified - disabled by default
 	epochTimestamp bool
+	skipPosition   SkipPosition
 	logger         *log.Logger
+}
+
+// GetSkipPosition ...
+func (c *ConsoleLogger) GetSkipPosition() SkipPosition {
+	return c.skipPosition
+}
+
+// SetSkipPosition ...
+func (c *ConsoleLogger) SetSkipPosition(p SkipPosition) {
+	c.skipPosition = p
 }
 
 func (c *ConsoleLogger) generateTimeStamp() string {
@@ -53,13 +64,14 @@ func (c *ConsoleLogger) generateLogContent(format string, v []interface{}) strin
 // Enables caller info and has stringified timestamp
 func NewConsoleLogger() Logger {
 
-	// Initializing new logger to STDOUT and we dont want to
+	// Initializing new logger to STDERR and we dont want to
 	// have any prefix or flags set ot this, as we want to set
 	// them later
 	var c = &ConsoleLogger{
 		callerInfo:     true,
 		epochTimestamp: false,
-		logger:         log.New(os.Stdout, "", 0),
+		skipPosition:   constSkipPosition,
+		logger:         log.New(os.Stderr, "", 0),
 	}
 	return c
 }

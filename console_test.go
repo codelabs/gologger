@@ -12,6 +12,17 @@ func TestNewConsoleLogger(t *testing.T) {
 	}
 }
 
+func TestGetSkipPosition(t *testing.T) {
+	var c = NewConsoleLogger()
+	assertEquality(t, SkipPosition(constSkipPosition), c.GetSkipPosition())
+}
+
+func TestSetSkipPosition(t *testing.T) {
+	var c = NewConsoleLogger()
+	c.SetSkipPosition(4)
+	assertEquality(t, SkipPosition(4), c.GetSkipPosition())
+}
+
 func TestConsoleLoggerInfo(t *testing.T) {
 
 	var c = NewConsoleLogger()
